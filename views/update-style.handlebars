@@ -1,0 +1,5 @@
+<h1>Update {{style.name}} :</h1>
+<form id="update-style" action="/style" method="post">
+    Name: <input type="text" name="name" value="{{style.name}}"><br>
+</form>
+<button onclick="updateStyle({{style.id}})">Update</button>

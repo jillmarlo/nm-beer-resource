@@ -1,0 +1,21 @@
+{{> nav}}
+<h1>Styles</h1>
+<h3>Add a style to the catalog</h3>
+<table class="table table-striped">
+    <thead>
+    <th>Name</th>
+    </thead>
+    <tbody>
+    {{#each style}}
+        <tr>
+            <td>{{name}}</td>
+            <td><button onclick="deleteStyle({{id}})">Delete</button></td>
+            <td><a href="/style/{{id}}">Update</a></td>
+        </tr>
+    {{/each}}
+    </tbody>
+    <form id="addstyle" action="/style" method="post">
+        Name: <input type="text" name="name"><br>
+        <input type="submit" value="Submit">
+    </form>
+</table>

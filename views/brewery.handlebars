@@ -1,0 +1,43 @@
+{{> nav}}
+<h1>Breweries</h1>
+<h3>Add a brewery to the catalog</h3>
+<table class="table table-striped">
+    <thead>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Style</th>
+    <th>Kitchen</th>
+    </thead>
+    <tbody>
+    {{#each brewery}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{location}}</td>
+            <td>{{brewery_style}}</td>
+            <td>
+                {{#if kitchen}}
+                    Yes
+                {{else}}
+                    No
+                {{/if}}
+            </td>
+            <td><button onclick="deleteBrewery({{id}})">Delete</button></td>
+            <td><a href="/brewery/{{id}}">Update</a></td>
+        </tr>
+    {{/each}}
+    </tbody>
+    <form id="addbrewery" action="/brewery" method="post">
+        Name: <input type="text" name="name"><br>
+        Location:<input type="text" name="location"><br>
+        Style: <select name="style_id">
+        {{#each style}}
+            <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+        Kitchen?: <select name="kitchen">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+    </select>
+        <input type="submit" value="Submit">
+    </form>
+</table>

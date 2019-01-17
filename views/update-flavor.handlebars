@@ -1,0 +1,5 @@
+<h1>Update {{flavor.descriptor}} :</h1>
+<form id="update-flavor" action="/flavor" method="post">
+    Descriptor: <input type="text" name="descriptor" value="{{flavor.descriptor}}"><br>
+</form>
+<button onclick="updateFlavor({{flavor.id}})">Update</button>

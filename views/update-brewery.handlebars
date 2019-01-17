@@ -1,0 +1,15 @@
+<h1>Update {{brewery.name}} :</h1>
+<form id="update-brewery" action="/brewery" method="post">
+    Name: <input type="text" name="name" value="{{brewery.name}}"><br>
+    Location:<input type="text" name="location" value="{{brewery.location}}"><br>
+    Style: <select name="style" value="{{brewery.style}}">
+    {{#each style}}
+        <option value="{{id}}">{{name}}</option>
+    {{/each}}
+</select><br>
+    Kitchen?: <select name="kitchen" value="{{kitchen}}"><br>
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+</select><br>
+</form>
+<button onclick="updateBrewery({{brewery.id}})">Update</button>

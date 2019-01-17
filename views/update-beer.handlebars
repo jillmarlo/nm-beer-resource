@@ -1,0 +1,35 @@
+<h1>Update {{beers.name}} :</h1>
+<form id="update-beer" action="/beers" method="post">
+    Name: <input type="text" name="name" value="{{beers.name}}"><br>
+    Brewery:
+    <select name="brewery_id" value="{{beers.brewery}}">
+        {{#each brewery}}
+            <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select>
+    <br>
+    Style:
+    <select name="style_id">
+        {{#each style}}
+            <option value="{{id}}">{{name}}</option>
+{{/each}}
+    </select>
+    <br>
+    Add Flavors:
+    <select name="flavor_ids" multiple="multiple">
+        {{#each flavor}}
+            {{#if (in id ../beerFlavors)}}
+                <option value="{{id}}" selected="selected">{{descriptor}}</option>
+            {{else}}
+                <option value="{{id}}">{{descriptor}}</option>
+            {{/if}}
+        {{/each}}
+    </select>
+    <br/>
+    BeerAdvocate Rating: <input type="number" step=".01" name="ba_rating" value="{{beers.ba_rating}}"><br>
+    Awards?: <select name="awards"><br>
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+</select><br>
+</form>
+<button onclick="updateBeer({{beers.id}})">Update</button>

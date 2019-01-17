@@ -1,0 +1,21 @@
+{{> nav}}
+<h1>Flavors</h1>
+<h3>Add a flavor to the catalog</h3>
+<table class="table table-striped">
+    <thead>
+    <th>Descriptor</th>
+    </thead>
+    <tbody>
+    {{#each flavor}}
+        <tr>
+            <td>{{descriptor}}</td>
+            <td><button onclick="deleteFlavor({{id}})">Delete</button></td>
+            <td><a href="/flavor/{{id}}">Update</a></td>
+        </tr>
+    {{/each}}
+    </tbody>
+    <form id="addflavor" action="/flavor" method="post">
+        Name: <input type="text" name="descriptor"><br>
+        <input type="submit" value="Submit">
+    </form>
+</table>
